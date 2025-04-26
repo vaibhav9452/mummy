@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I Love You Mummy</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #ffd6e0, #e0f7fa, #ffe6f0);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      overflow-x: hidden;
+      text-align: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 3em;
+      color: #ff3399;
+      text-shadow: 2px 2px 5px #fff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff3399, 0 0 20px #ff3399, 0 0 30px #ff3399;
+      }
+      to {
+        text-shadow: 0 0 20px #ff66cc, 0 0 30px #ff66cc, 0 0 40px #ff66cc;
+      }
+    }
+
+    .photo {
+      margin-top: 20px;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 8px solid #ffb6c1;
+      box-shadow: 0 0 20px #ff66cc;
+      animation: popIn 2s ease;
+      margin-bottom: 40px;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    p {
+      font-size: 1.5em;
+      color: #555;
+      margin: 20px;
+      line-height: 1.5;
+      animation: fadeIn 3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hug-button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.5em;
+      background: linear-gradient(90deg, #ff6699, #ff9966);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255,105,180,0.5);
+      transition: 0.3s;
+    }
+
+    .hug-button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(90deg, #ff9966, #ff6699);
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 1.2em;
+      background-color: rgba(255, 182, 193, 0.5);
+      border-top: 1px solid #fff;
+    }
+
+    /* Falling hearts effect */
+    .heart {
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/contain;
+      position: absolute;
+      top: -50px;
+      animation: fall 10s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body onload="createHearts();">
+
+  <!-- Hidden autoplay background music -->
+  <div style="display:none;">
+    <iframe src="https://www.youtube.com/embed/PGv2khQzE-Q?autoplay=1&loop=1&playlist=PGv2khQzE-Q" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+  </div>
+
+  <h1>I Love You Mummy</h1>
+
+  <div class="photo">
+    <img src="https://i.ibb.co/YB66VBQp/mummy.jpg" alt="Mummy">
+  </div>
+
+  <p>Maa, aap mere liye sab kuch ho!</p>
+  <p>Aapka pyaar mere jeene ki wajah hai.</p>
+  <p>Har din aapka saath meri duniya ko roshan karta hai.</p>
+  <p>Meri zindagi ki sabse khoobsurat baat aap ho!</p>
+
+  <button class="hug-button" onclick="alert('Sending a BIG hug to Mummy!')">Send a Hug!</button>
+
+  <footer>
+    Tumhari ek muskaan meri zindagi hai... Thank you Maa!
+  </footer>
+
+  <script>
+    function createHearts() {
+      for(let i=0; i<30; i++) {
+        let heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+        document.body.appendChild(heart);
+      }
+    }
+  </script>
+
+</body>
+</html>
